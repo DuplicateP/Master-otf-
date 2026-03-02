@@ -442,8 +442,8 @@ async def send_vid(bot: Client, m: Message, cc, filename, thumb, name, prog, cha
 
                 text_cmd = (
                     f'ffmpeg -i "{temp_thumb}" -vf '
-                    f'"drawbox=y=0:color=black@0.35:width=iw:height={box_h}:t=fill,'
-                    f'drawtext=fontfile=font.ttf:text=\'{safe_text}\':fontcolor=white:'
+                    f'"drawbox=y=(ih-{box_h})/2:color=black@0.00:width=iw:height={box_h}:t=fill,'
+                    f'drawtext=fontfile=font.ttf:text=\'{safe_text}\':fontcolor=black:'
                     f'fontsize={font_size}:x=(w-text_w)/2:y=(({box_h})-text_h)/2" '
                     f'-c:v mjpeg -q:v 2 -y "{temp_thumb}"'
                 )
